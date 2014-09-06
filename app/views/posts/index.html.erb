@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <%= link_to 'New Post', new_post_path %>
+
+
+
+    <% @posts.each do |post| %>
+        <h2 id="title"><%= link_to post.title, post %></h2>
+        <br>
+        
+
+        <p><%= post.body %></p>
+        
+      <div class="btn-group">
+        <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_post_path(post) %></button>
+        <button type="button" class="btn btn-default"><%= link_to 'Destroy', post, method: :delete, data: { confirm: '确定?' } %></button>
+    </div>
+    <br>
+<br>
+<br>
+<br>
+    <% end %>
+
+
+
+</div>
+</div>
+<div class="center">
+<%= will_paginate @posts %>
+</div>

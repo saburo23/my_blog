@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<p id="notice"><%= notice %></p>
+	<div class="center">
+        <h2 id="title"><%= @post.title%></h2>
+    </div>
+        <br>
+        
+
+        <p><%= @post.body %></p>
+        
+      <div class="btn-group">
+        <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_post_path(@post) %></button>
+        <button type="button" class="btn btn-default"><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '确定?' } %></button>
+    </div>
+
+</div>
+</div>
