@@ -1,5 +1,8 @@
 MyBlog::Application.routes.draw do
-  
+  resources :users
+
+  match '/hignup',  to: 'users#new', via: 'get'
+
   resources :posts
 
   #index
