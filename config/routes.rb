@@ -1,7 +1,11 @@
 MyBlog::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   match '/hignup',  to: 'users#new', via: 'get'
+
+  match '/hignin',  to: 'sessions#new',         via: 'get'
+  match '/hignout', to: 'sessions#destroy',     via: 'delete'
 
   resources :posts
 
