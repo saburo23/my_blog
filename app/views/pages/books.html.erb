@@ -1,8 +1,0 @@
-<div>
-	<% if current_user.microposts.any? %>
-	<h3>Microposts(<%= current_user.microposts.count %>)</h3>
-	<% current_user.microposts.each do |m| %>
-	<li><%= m.content %></li>
-	<% end %>
-	<% end %>
-</div>
