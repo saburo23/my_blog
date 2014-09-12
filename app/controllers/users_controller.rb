@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.paginate(page: params[:page])
 	end
 
 	def new
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
+			sign_in @user
         	redirect_to @user
 
 		else
@@ -19,23 +21,14 @@ class UsersController < ApplicationController
 		
 	end
 
-	def User.new_remember_token
-		SecureRandom.urlsafe_base64
-	end
-
-	def User.digest(token)
-		Digest::SHA1.hexigest(token.to_s)
-	end
+	
 
 	private
 		def user_params
 			params.require(:user).permit(:name, :email, :password, :password_confirmation)
 		end
 
-		def create_remember_token
-			self.remember_token = User.digest(User.new_remember_token)
-		end
-
+	
 
 
 end

@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
+    <% if signed_in? %>
     <%= link_to 'New Post', new_post_path %>
-
+    <% end %>
 
 
     <% @posts.each do |post| %>
@@ -20,10 +21,9 @@
 <br>
 <br>
     <% end %>
-
-
-
 </div>
+<div class = "col-md-3">
+    <h6>woannnn n jnjnbjknknkjnjknjkn</h6>
 </div>
 <div class="center">
 <%= will_paginate @posts %>
