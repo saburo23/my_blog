@@ -2,9 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   
-  
- 
-
   # GET /posts
   # GET /posts.json
   def index
@@ -63,6 +60,12 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.liked_by current_user
+    redirect_to root_url
   end
 
   private

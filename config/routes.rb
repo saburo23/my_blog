@@ -7,7 +7,11 @@ MyBlog::Application.routes.draw do
   match '/hignin',  to: 'sessions#new',         via: 'get'
   match '/hignout', to: 'sessions#destroy',     via: 'get'
 
-  resources :posts
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+    end
+  end
 
   #index
   root "posts#index"

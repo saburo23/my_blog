@@ -7,11 +7,21 @@
         <br>
         
 
-        <pre><%= @post.body %></pre>
+        <%= sanitize(@post.body) %>
+        <br>
+        <br>
+        <br>
         
-      <div class="btn-group">
+<div class="btn-group">
+      <% if signed_in? %>
+       
         <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_post_path(@post) %></button>
         <button type="button" class="btn btn-default"><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '确定?' } %></button>
+        <% end %>
+        <button type="button" class="btn btn-default"><%= link_to '是的，我喜欢这文章！', like_post_path(@post), method: :put %></button>
+        
+        <button type="button" class="btn btn-default">有<%= @post.get_likes.size %>人喜欢
+</button> 
     </div>
 
 </div>
