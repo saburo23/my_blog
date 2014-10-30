@@ -8,6 +8,9 @@ $navbar-default-brand-color: 	#c0392b;
 $brand-primary: 							#c0392b;
 $navbar-default-link-color:#c0392b;
 $jumbotron-bg:#3498db;
+p, h1, h2 {
+	line-spacing: -2.0;
+}
 @import "bootstrap";
 
 body { padding-top: 70px; }
